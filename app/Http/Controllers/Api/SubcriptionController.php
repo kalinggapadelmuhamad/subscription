@@ -110,7 +110,7 @@ class SubcriptionController extends Controller
         $subcription = Subcription::where('token', $token)->first()->makeHidden(['id', 'user_id']);
         $status = $subcription->end_date > now() ? 'active' : 'expired';
         return response()->json([
-            'subcription' => array_merge($subcription->toArray(), [
+            'data' => array_merge($subcription->toArray(), [
                 'status' => $status
             ]),
         ], 200);
