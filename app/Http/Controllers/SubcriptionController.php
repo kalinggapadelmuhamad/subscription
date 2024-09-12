@@ -14,10 +14,15 @@ class SubcriptionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+
         $type_menu = 'Subcription';
-        $subcriptions = Subcription::latest()->paginate(10);
+        $subcriptions = Subcription::when($request->search, function ($query) use ($request) {
+            $query->whereHas('user', function ($query) use ($request) {
+                $query->where('name', 'like', '%' . $request->search . '%');
+            });
+        })->latest()->paginate(10);
         return view('pages.subcription.index', compact('type_menu', 'subcriptions'));
     }
 
@@ -91,8 +96,10 @@ class SubcriptionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Subcription $subscription)
     {
-        //
+        $subscription->delete();
+        Alert::success('Success', 'Subscription has been deleted');
+        return Redirect::route('subscription.index');
     }
 }

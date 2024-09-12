@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('subcriptions', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid');
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->text('token');
             $table->integer('duration');
             $table->date('end_date');

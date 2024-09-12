@@ -86,7 +86,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex justify-content-center">
-                                                        <form action="{{ route('user.destroy', $subcription) }}"
+                                                        <form action="{{ route('subscription.destroy', $subcription) }}"
                                                             method="post">
                                                             @csrf
                                                             @method('delete')
