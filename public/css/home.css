@@ -1,0 +1,70 @@
+/* Font dan box-sizing global */
+* {
+    font-family: 'Poppins', sans-serif;
+    /* Pastikan font 'Poppins' dimuat dengan benar */
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Background dan layout home */
+.home {
+    min-height: 100vh;
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Style card */
+.home .card {
+    /* width: 25%; */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Style untuk elemen waktu di card */
+/* .home .card-body .time {
+    font-size: 50px;
+} */
+
+/* Media Queries */
+@media (min-width: 576px) {
+    .home .card {
+        width: 100%;
+        /* Tidak perlu !important kecuali ada konflik */
+    }
+
+    .home .card-body .time {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 768px) {
+    .home .card {
+        width: 100%;
+    }
+
+    .home .card-body .time {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 992px) {
+    .home .card {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .home .card-body .time {
+        font-size: 50px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .home .card {
+        width: 25%;
+    }
+
+    .home .card-body .time {
+        font-size: 50px;
+    }
+}
